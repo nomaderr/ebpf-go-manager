@@ -120,3 +120,14 @@ int BPF_PROG(block_file_create, struct inode *dir, struct dentry *dentry, umode_
 }
 
 
+/*
+
+ecli run package.json
+bpftool map show
+bpftool map pin id <found_id> /sys/fs/bpf/path_block_map
+for /etc/test
+sudo bpftool map update pinned /sys/fs/bpf/path_block_map \
+  key 01 00 00 00 \
+  value 01 00 00 00
+
+*/
